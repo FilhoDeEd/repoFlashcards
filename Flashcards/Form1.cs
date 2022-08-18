@@ -7,6 +7,9 @@ namespace Flashcards
             InitializeComponent();
         }
 
-        
+        private void listBaralhos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
