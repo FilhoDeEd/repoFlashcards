@@ -7,9 +7,10 @@ namespace Flashcards
             InitializeComponent();
         }
 
-        private void listBaralhos_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnAdicionarBaralho_Click(object sender, EventArgs e)
         {
-
+            formAdicionarBaralho AdicionarBaralho = new formAdicionarBaralho();            
+            AdicionarBaralho.Show();
         }
     }
 }
