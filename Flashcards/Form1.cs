@@ -12,5 +12,11 @@ namespace Flashcards
             formAdicionarBaralho AdicionarBaralho = new formAdicionarBaralho();            
             AdicionarBaralho.Show();
         }
+
+        private void btnEditarBaralho_Click(object sender, EventArgs e)
+        {
+            formEditarBaralho EditarBaralho = new formEditarBaralho();
+            EditarBaralho.Show();
+        }
     }
 }
