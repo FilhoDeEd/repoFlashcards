@@ -70,6 +70,7 @@
             this.btnRespotaTelaDeRevisao.TabIndex = 2;
             this.btnRespotaTelaDeRevisao.Text = "Resposta";
             this.btnRespotaTelaDeRevisao.UseVisualStyleBackColor = true;
+            this.btnRespotaTelaDeRevisao.Click += new System.EventHandler(this.btnRespotaTelaDeRevisao_Click);
             // 
             // btnCertoTelaDeRevisao
             // 
@@ -167,6 +168,9 @@
             this.Controls.Add(this.rtxtRespostaTelaDeRevisao);
             this.Controls.Add(this.txtPerguntaTelaDeRevisao);
             this.Name = "formTelaDeRevisao";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formTelaDeRevisao_FormClosed);
+            this.Load += new System.EventHandler(this.formTelaDeRevisao_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
