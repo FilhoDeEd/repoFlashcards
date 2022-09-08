@@ -16,5 +16,15 @@ namespace Flashcards
         {
             InitializeComponent();
         }
+
+        private void btnCriar_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btnCancelarCriarBaralho_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+        }
     }
 }

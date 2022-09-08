@@ -14,8 +14,17 @@ namespace Flashcards
 
         private void btnAdicionarBaralho_Click(object sender, EventArgs e)
         {
-            formAdicionarBaralho adicionarBaralho = new formAdicionarBaralho();            
-            adicionarBaralho.Show();
+            formAdicionarBaralho adicionarBaralho = new formAdicionarBaralho();
+            DialogResult adicionarBaralhoDialogResult = adicionarBaralho.ShowDialog();
+
+            if(adicionarBaralhoDialogResult == DialogResult.OK)
+            {
+                
+            }
+            else if(adicionarBaralhoDialogResult == DialogResult.Cancel)
+            {
+
+            }
         }
 
         private void btnEditarBaralho_Click(object sender, EventArgs e)

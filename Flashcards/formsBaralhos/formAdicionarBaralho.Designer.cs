@@ -63,6 +63,7 @@
             this.btnCriar.TabIndex = 2;
             this.btnCriar.Text = "Criar Baralho";
             this.btnCriar.UseVisualStyleBackColor = false;
+            this.btnCriar.Click += new System.EventHandler(this.btnCriar_Click);
             // 
             // btnCancelarCriarBaralho
             // 
@@ -74,6 +75,7 @@
             this.btnCancelarCriarBaralho.TabIndex = 3;
             this.btnCancelarCriarBaralho.Text = "Cancelar";
             this.btnCancelarCriarBaralho.UseVisualStyleBackColor = false;
+            this.btnCancelarCriarBaralho.Click += new System.EventHandler(this.btnCancelarCriarBaralho_Click);
             // 
             // formAdicionarBaralho
             // 
