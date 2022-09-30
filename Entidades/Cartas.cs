@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Flashcards.Classes
+namespace Entidades
 {
     public class Carta
     {
