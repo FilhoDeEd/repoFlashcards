@@ -17,7 +17,6 @@ namespace Flashcards
             try
             {
                 DataTable? objDataTable = null;
-                //Se quiser personalizar a busca
                 string strSQL = "select Id_Baralho, Nome from tblBaralhos";
                 objDataTable = AcessoDadosMySql.ExecutaConsultar(CommandType.Text, strSQL);
                 if (objDataTable.Rows.Count <= 0)
@@ -132,7 +131,5 @@ namespace Flashcards
                 return false;
             }
         }
-
-
     }
 }

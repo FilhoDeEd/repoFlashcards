@@ -41,25 +41,20 @@ namespace AcessoDados
             objParametros.Add(new MySqlParameter(strNomeParametro, objValor));
         }
 
-        //Inserir, Alterar e Excluir
         public static object ExecutarManipulacao(CommandType objTipo, string strSql)
         {
             try
             {
-                //SP = Stored Procedure (Procedimento Armazenado no MySQL)
-                //strSql => é o comando SQL ou o nome da SP
                 if (Conexao == null)
                     Conexao = CriarConexao();
 
                 MySqlConnection objConexao = Conexao;
 
                 MySqlCommand objComando = objConexao.CreateCommand();
-                //Informa se será executada uma SP ou um texto SQL
                 objComando.CommandType = objTipo;
                 objComando.CommandText = strSql;
-                objComando.CommandTimeout = 999999999; //Segundos
+                objComando.CommandTimeout = 999999999;
 
-                //Adicionar os parâmetros para ir para o banco Sql Server
                 foreach (MySqlParameter objParametro in objParametros)
                     objComando.Parameters.Add(new MySqlParameter(objParametro.ParameterName, objParametro.Value));
 
@@ -71,7 +66,6 @@ namespace AcessoDados
             }
         }
 
-        //Consultar registros do banco de dados
         public static DataTable ExecutaConsultar(CommandType objTipo, string strSql)
         {
             try
