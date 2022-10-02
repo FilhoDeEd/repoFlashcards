@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AcessoDados;
+using Entidades;
+using System.Data;
 
 namespace Flashcards
 {
-    /*
     public class BaralhoDAO
     {
         public List<Baralho> List()
@@ -14,10 +16,10 @@ namespace Flashcards
             List<Baralho> lista = new List<Baralho>();
             try
             {
-                DataTable objDataTable = null;
+                DataTable? objDataTable = null;
                 //Se quiser personalizar a busca
                 string strSQL = "select Id_Baralho, Nome from tblBaralhos";
-                objDataTable = AcessoDadosPostgres.ExecutaConsultar(CommandType.Text, strSQL);
+                objDataTable = AcessoDadosMySql.ExecutaConsultar(CommandType.Text, strSQL);
                 if (objDataTable.Rows.Count <= 0)
                 {
                     return lista;
@@ -25,11 +27,11 @@ namespace Flashcards
 
                 foreach (DataRow objLinha in objDataTable.Rows)
                 {
-                    Baralho objNovaBaralho = new Baralho();
-                    objNovaBaralho.IdBaralho = objLinha["Id_Baralho"] != DBNull.Value ? Convert.ToInt32(objLinha["Id_Baralho"]) : 0;
-                    objNovaBaralho.Nome = objLinha["Nome"] != DBNull.Value ? Convert.ToString(objLinha["Nome"]) : "";
+                    Baralho objNovoBaralho = new Baralho();
+                    objNovoBaralho.IdBaralho = objLinha["Id_Baralho"] != DBNull.Value ? Convert.ToInt32(objLinha["Id_Baralho"]) : 0;
+                    objNovoBaralho.Nome = objLinha["Nome"] != DBNull.Value ? Convert.ToString(objLinha["Nome"]) : "";
 
-                    lista.Add(objNovaBanda);
+                    lista.Add(objNovoBaralho);
                 }
                 return lista;
             }
@@ -43,16 +45,16 @@ namespace Flashcards
         {
             try
             {
-                AcessoDadosPostgres.LimparParametros();
+                AcessoDadosMySql.LimparParametros();
 
-                object objRetorno = null;
-                if (Baralho != null)
+                object? objRetorno = null;
+                if (baralho != null)
                 {
-                    AcessoDados.AcessoDadosMySql.AdicionarParametros("@intId_Baralho", baralho.Id_Baralho);
+                    AcessoDados.AcessoDadosMySql.AdicionarParametros("@intIdBaralho", baralho.IdBaralho);
                     AcessoDados.AcessoDadosMySql.AdicionarParametros("@vchNome", baralho.Nome);
 
                     string strSQL = "insert into tblBaralho (Nome) values ( @vchNome); select CURRVAL('Id_Baralho_seq');";
-                    objRetorno = AcessoDadosPostgres.ExecutarManipulacao(CommandType.Text, strSQL);
+                    objRetorno = AcessoDadosMySql.ExecutarManipulacao(CommandType.Text, strSQL);
                 }
 
                 int intResultado = 0;
@@ -70,22 +72,20 @@ namespace Flashcards
             }
         }
 
-        //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-        public bool Edit(Banda banda)
+        public bool Edit(Baralho baralho)
         {
             try
             {
-                AcessoDadosPostgres.LimparParametros();
+                AcessoDadosMySql.LimparParametros();
 
-                object objRetorno = null;
-                if (banda != null)
+                object? objRetorno = null;
+                if (baralho != null)
                 {
-                    AcessoDadosPostgres.AdicionarParametros("@intCod_banda", banda.Codigo);
-                    AcessoDadosPostgres.AdicionarParametros("@vchDescricao_banda", banda.Descricao);
+                    AcessoDadosMySql.AdicionarParametros("@intIdBaralho", baralho.IdBaralho);
+                    AcessoDadosMySql.AdicionarParametros("@vchNome", baralho.Nome);
 
                     string strSQL = "update tblBanda set descricao_banda = @vchDescricao_banda where cod_banda = @intCod_banda; select @intCod_banda;";
-                    objRetorno = AcessoDadosPostgres.ExecutarManipulacao(CommandType.Text, strSQL);
+                    objRetorno = AcessoDadosMySql.ExecutarManipulacao(CommandType.Text, strSQL);
                 }
 
                 int intResultado = 0;
@@ -103,19 +103,19 @@ namespace Flashcards
             }
         }
 
-        public bool Delete(Banda banda)
+        public bool Delete(Baralho baralho)
         {
             try
             {
-                AcessoDadosPostgres.LimparParametros();
+                AcessoDadosMySql.LimparParametros();
 
-                object objRetorno = null;
-                if (banda != null)
+                object? objRetorno = null;
+                if (baralho != null)
                 {
-                    AcessoDadosPostgres.AdicionarParametros("@intCod_banda", banda.Codigo);
+                    AcessoDadosMySql.AdicionarParametros("@intCod_banda", baralho.IdBaralho);
 
-                    string strSQL = "delete from tblBanda where cod_banda = @intCod_banda; select @intCod_banda;";
-                    objRetorno = AcessoDadosPostgres.ExecutarManipulacao(CommandType.Text, strSQL);
+                    string strSQL = "delete from tblBanda where IdBaralho = @intIdBaralho; select @intIdBaralho;";
+                    objRetorno = AcessoDadosMySql.ExecutarManipulacao(CommandType.Text, strSQL);
                 }
 
                 int intResultado = 0;
@@ -135,5 +135,4 @@ namespace Flashcards
 
 
     }
-    */
 }
