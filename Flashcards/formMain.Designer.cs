@@ -31,9 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.arquivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baralhosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.baralhoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cartaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cartasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exibirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -54,8 +52,7 @@
             // arquivoToolStripMenuItem
             // 
             this.arquivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.baralhosToolStripMenuItem,
-            this.cartasToolStripMenuItem});
+            this.baralhosToolStripMenuItem});
             this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
             this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.arquivoToolStripMenuItem.Text = "Arquivo";
@@ -63,29 +60,17 @@
             // baralhosToolStripMenuItem
             // 
             this.baralhosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.baralhoToolStripMenuItem,
             this.cartaToolStripMenuItem});
             this.baralhosToolStripMenuItem.Name = "baralhosToolStripMenuItem";
-            this.baralhosToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.baralhosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.baralhosToolStripMenuItem.Text = "Novo";
-            // 
-            // baralhoToolStripMenuItem
-            // 
-            this.baralhoToolStripMenuItem.Name = "baralhoToolStripMenuItem";
-            this.baralhoToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
-            this.baralhoToolStripMenuItem.Text = "Baralho";
             // 
             // cartaToolStripMenuItem
             // 
             this.cartaToolStripMenuItem.Name = "cartaToolStripMenuItem";
-            this.cartaToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.cartaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cartaToolStripMenuItem.Text = "Carta";
-            // 
-            // cartasToolStripMenuItem
-            // 
-            this.cartasToolStripMenuItem.Name = "cartasToolStripMenuItem";
-            this.cartasToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.cartasToolStripMenuItem.Text = "Cartas";
+            this.cartaToolStripMenuItem.Click += new System.EventHandler(this.cartaToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
@@ -123,9 +108,7 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem arquivoToolStripMenuItem;
         private ToolStripMenuItem baralhosToolStripMenuItem;
-        private ToolStripMenuItem cartasToolStripMenuItem;
         private ToolStripMenuItem editarToolStripMenuItem;
-        private ToolStripMenuItem baralhoToolStripMenuItem;
         private ToolStripMenuItem cartaToolStripMenuItem;
         private ToolStripMenuItem exibirToolStripMenuItem;
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Flashcards.formsBaralhos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,21 @@ namespace Flashcards
             formVisualizarBaralhos visualizarBaralhos = new formVisualizarBaralhos();
             visualizarBaralhos.MdiParent = this;
             visualizarBaralhos.Show();
+        }
+
+        private void cartaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            formAdicionarCarta adicionarCarta = new formAdicionarCarta();
+            adicionarCarta.ShowDialog();
+
+            if (adicionarCarta.DialogResult == DialogResult.OK)
+            {
+
+            }
+            else if (adicionarCarta.DialogResult == DialogResult.Cancel)
+            { 
+
+            }
         }
     }
 }
